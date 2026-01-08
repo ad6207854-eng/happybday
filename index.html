@@ -35,9 +35,25 @@
                     <span class="say">HAGER</span><br>
                 </div>
             </div>
-			<div id="clock-box">
-    <span style="color: #666; font-size: 14px; display: block; margin-bottom: 10px;">THE WORLD JUST GOT LUCKIER SINCE</span>
-    <div id="clock" style="font-size: 18px; color: #333;">19 Years 228 Months 6940 Days 166560 Hours</div>
+			<div id="clock-box" style="
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    text-align: center;
+    display: none;
+    z-index: 10;
+">
+    <div style="color:#fff; font-size:14px; margin-bottom:14px; letter-spacing:1px;">
+        THE WORLD JUST GOT LUCKIER SINCE
+    </div>
+
+    <div style="color:#fff; font-size:20px; font-weight:bold;">
+        19 Years&nbsp;&nbsp;
+        228 Months&nbsp;&nbsp;
+        6940 Days&nbsp;&nbsp;
+        166560 Hours
+    </div>
+</div>
 </div>
 </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
@@ -162,9 +178,10 @@
             canvas.css("background", "none");
         }));
 
-        var textAnimate = eval(Jscex.compile("async", function () {
-            $("#code").show().typewriter();
-        }));
+       var textAnimate = eval(Jscex.compile("async", function () {
+    $("#code").show().typewriter();
+    $("#clock-box").fadeIn(1200);
+}));
 	    
         var runAsync = eval(Jscex.compile("async", function () {
             $await(seedAnimate());
